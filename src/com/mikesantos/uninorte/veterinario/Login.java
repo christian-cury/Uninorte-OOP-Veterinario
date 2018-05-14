@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 
 import javax.swing.JPanel;
 import com.mikesantos.uninorte.veterinario.listeners.login.LoginButtonListener;
-import com.mikesantos.uninorte.veterinario.listeners.login.PasswordKeyListener;
+import com.mikesantos.uninorte.veterinario.objects.swing.MTextField;
 import com.mikesantos.uninorte.veterinario.settings.FrameSettings;
 import com.mikesantos.uninorte.veterinario.utils.MaterialUtils;
 
@@ -19,7 +19,7 @@ public class Login extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField username;
-	private JTextField password;
+	private MTextField password;
 
 	/**
 	 * Create the frame.
@@ -60,9 +60,9 @@ public class Login extends JFrame {
 		JLabel passwordLabel = new JLabel("Senha:   ");
 		passwordPanel.add(passwordLabel);
 		
-		password = new JTextField();
-		password.addKeyListener(new PasswordKeyListener());
-		
+		password = new MTextField();
+		password.enableMasking();
+		password.setHighlighter(null);
 		passwordPanel.add(password);
 		password.setColumns(30);
 		
