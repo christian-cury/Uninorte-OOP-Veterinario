@@ -10,6 +10,7 @@ Equipe
 
 ````
 Alex Bruno Dantas Alexandrino
+Fagner da Silva Maia
 Gabriel Mendes Vasconcelos
 Mike Christian Santos Curi
 ````
