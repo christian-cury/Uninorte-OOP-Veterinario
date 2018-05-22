@@ -2,8 +2,11 @@ package com.mikesantos.uninorte.veterinario;
 
 import java.awt.EventQueue;
 
+
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+
+import com.mikesantos.uninorte.veterinario.utils.RequestData;
 
 import mdlaf.MaterialLookAndFeel;
 
@@ -19,7 +22,12 @@ public class Veterinario {
 				} catch (UnsupportedLookAndFeelException e) {
 					e.printStackTrace();
 				}
-				getInstance().init();
+				
+				String response = new RequestData("https://httpbin.org/ip").get();
+				System.out.println(response);
+				response = new RequestData("https://httpbin.org/post").addParam("eu", "vou").addParam("te", "fuder").post();
+				System.out.println(response);
+				//getInstance().init();
 			}
 		});
 	}
