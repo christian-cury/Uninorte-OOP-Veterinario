@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import javax.swing.JComponent;
 
-import mdlaf.MaterialUIMovement;
+import mdlaf.animation.MaterialUIMovement;
 
 public class MaterialUtils {
 	

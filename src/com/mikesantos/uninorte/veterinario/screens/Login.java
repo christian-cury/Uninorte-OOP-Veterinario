@@ -1,11 +1,13 @@
-package com.mikesantos.uninorte.veterinario;
+package com.mikesantos.uninorte.veterinario.screens;
 
 import javax.swing.JFrame;
 
 
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+
+import com.mikesantos.uninorte.veterinario.Veterinario;
 import com.mikesantos.uninorte.veterinario.listeners.login.LoginButtonListener;
-import com.mikesantos.uninorte.veterinario.objects.swing.MTextField;
 import com.mikesantos.uninorte.veterinario.settings.FrameSettings;
 import com.mikesantos.uninorte.veterinario.utils.MaterialUtils;
 
@@ -19,12 +21,14 @@ public class Login extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField username;
-	private MTextField password;
+	private JPasswordField password;
+	private Veterinario instance;
 
 	/**
 	 * Create the frame.
 	 */
-	public Login() {
+	public Login(Veterinario instance) {
+		this.instance = instance;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -60,9 +64,9 @@ public class Login extends JFrame {
 		JLabel passwordLabel = new JLabel("Senha:   ");
 		passwordPanel.add(passwordLabel);
 		
-		password = new MTextField();
-		password.enableMasking();
-		password.setHighlighter(null);
+		password = new JPasswordField();
+//		password.enableMasking();
+//		password.setHighlighter(null);
 		passwordPanel.add(password);
 		password.setColumns(30);
 		
@@ -72,7 +76,7 @@ public class Login extends JFrame {
 		contentPane.add(accessPanel);
 		
 		JButton btnAccess = new JButton("Acessar");
-		btnAccess.addActionListener(new LoginButtonListener(this, username, password));
+		btnAccess.addActionListener(new LoginButtonListener(this.instance, this, username, password));
 		MaterialUtils.addHover(btnAccess, MaterialUtils.LIGHT_GRAY);
 		accessPanel.add(btnAccess);
 		
